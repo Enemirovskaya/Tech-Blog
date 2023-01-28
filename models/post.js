@@ -39,4 +39,3 @@ Post.init(
   );
   
   module.exports = Post;
-Foot
