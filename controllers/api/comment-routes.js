@@ -1,18 +1,30 @@
 const router = require('express').Router();
-const { Comment } = require('../../models/');
-const withAuth = require('../../utils/auth');
+const { Comment, Post, User } = require('../../models/');
 
-
-router.post('/', withAuth, async (req, res) => {
+// Get all comments
+router.get('/', async (req, res) => {
   try {
-    const newComment = await Comment.create({
-      comment_text: req.body.comment_text,
-      post_id: req.body.post_id,
-      user_id: req.session.user_id,
-    });
-    res.json(newComment);
+      const commentData = await Comment.findAll({
+          include: [User, Post]
+      });
+
+      res.status(200).json(commentData);
+  } catch (err){
+      res.status(500).json(err);
+  }
+});
+
+// Create comment
+router.post('/', async (req, res) => {
+  try {
+      const commentData = await Comment.create({
+          ...req.body,
+          user_id: req.session.user_id,
+      });
+
+      res.status(200).json(commentData)
   } catch (err) {
-    res.status(400).json(err);
+      res.status(500).json(err)
   }
 });
 
