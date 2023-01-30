@@ -1,25 +1,27 @@
-
-
-
 <div>
-    <div class="blog-card">
-        <div class="blog-container">
-            <div class="blog-header">
+    <div class="post-card">
+        <div class="post-container">
+
+            <div class="post-header">
                 <h1>{{title}}</h1>
             </div>
-            <div class="blog-author">
-                <p class="blog-name">{{user.username}}</p>
+
+            <div class="post-author">
+                <p class="post-name">{{user.username}}</p>
             </div>
-            <div class="blog-content">
+
+            <div class="post-content">
                 <p>{{content}}
             </div>
             <div>
-                <p class="blog-date">{{format_date createdAt}}</p>
+                <p class="post-date">{{format_date createdAt}}</p>
             </div>
-            
         </div>
+
     </div>
+
 </div>
+
 <div class="login-header">
   <p>This post has {{comments.length}} comments</p>
 </div>
@@ -33,18 +35,18 @@
 
 {{#if logged_in}}
 <div class="login-header">
-  <h1>add a comment</h1>
+  <h1>Add a comment</h1>
 </div>
 <div>
-  <form id="comment-form{{blog.id}}" class="login-form">
+  <form id="comment-form{{post.id}}" class="login-form">
     <div class="form-group">
       <label class="custom-field">comment</label>
-      <input id="blog-comment{{id}}" data-type="{{blog.id}}" for="pass" type="text" class="form-control">
+      <input id="post-comment{{id}}" data-type="{{post.id}}" for="pass" type="text" class="form-control">
     </div>
-    <button type="submit" data-id="{{id}}" id="commentBtn" class="btn btn-primary custom-btn">post</button>
+    <button type="submit" data-id="{{id}}" id="commentBtn" class="btn btn-primary custom-btn">Post</button>
 </form>
 </div>
 
 {{/if}}
 
-<script src="/js/comment.js"></script>
+<script src="/js/post.js"></script>

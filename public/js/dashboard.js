@@ -21,6 +21,7 @@ const newPostSave = async (event) => {
     }
 
 };
+    // Deleting post
 const delButtonHandler = async (event) => {
     if(event.target.hasAttribute('data-id')){
         console.log(event)
@@ -38,6 +39,7 @@ const delButtonHandler = async (event) => {
         }
     }
 }
+    // Updating post
 const updateFormHandler = async (event) => {
     event.preventDefault();
     console.log('entered form')
@@ -62,7 +64,7 @@ const updateFormHandler = async (event) => {
             if(response.ok) {
                 document.location.replace('/dashboard')
             } else {
-                alert('Cannot update post post!')
+                alert('Cannot update post!')
             };
         }
     }

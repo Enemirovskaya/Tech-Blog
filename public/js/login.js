@@ -1,4 +1,4 @@
-const loginFormHandler = async (event) => {
+const loginHandler = async (event) => {
     // Stop the browser from submitting the form so we can do so with JavaScript
     event.preventDefault();
   
@@ -8,14 +8,14 @@ const loginFormHandler = async (event) => {
   
     if (username && password) {
       // Send the username and password to the server
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/api/user/login', {
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/');
       } else {
         alert('Failed to log in');
       }
@@ -23,6 +23,6 @@ const loginFormHandler = async (event) => {
   };
   
   document
-    .querySelector('#login-form')
-    .addEventListener('submit', loginFormHandler);
+    .querySelector('.login-btn')
+    .addEventListener('click', loginHandler);
   
