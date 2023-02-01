@@ -84,14 +84,14 @@ const showUpdateForm = async (event) => {
 for (let index = 0; index < document.querySelectorAll('#saveBtn')
 .length; index++) {
     const delButton = document.querySelectorAll('#saveBtn')[index];
-    delButton.addEventListener('click', updateFormHandler);
+    delButton.addEventListener('submit', updateFormHandler);
 };
 
 $('.post-update')
-    .on('click', showUpdateForm);
+    .on('submit', showUpdateForm);
 
 $('.post-btn')
-    .on('click', newPostSave);
+    .on('submit', newPostSave);
 
 $('.post-delete')
-    .on('click', delButtonHandler);
+    .on('submit', delButtonHandler);

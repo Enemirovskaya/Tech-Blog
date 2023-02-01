@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({ include: User });
     const posts = postData.map((posts) => posts.get({ plain: true }));
-    res.render("home", {
+    res.render("homepage", {
       posts,
       logged_in: req.session.logged_in,
     });
